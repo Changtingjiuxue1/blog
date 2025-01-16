@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Changtingjiuxue">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数据库数据类型，并指出这些类型对应Java里面的哪些数据类型 整数类型 数据库：在 MySQL 中有 INT（4 字节）、BIGINT（8 字节）等； Java：INT 类型对应 Java 中的 int 类型；BIGINT 类型对应 Java 中的 long 类型；SMALLINT 类型对应 Java 中的 short 类型；TINYINT类型对应 Java 中的byte 类型；   浮点数和小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作业1">
+<meta property="og:url" content="https://changtingjiuxue1.github.io/blog/2025/01/16/%E4%BD%9C%E4%B8%9A1/index.html">
+<meta property="og:site_name" content="Changtingjiuxue&#39;s blog">
+<meta property="og:description" content="数据库数据类型，并指出这些类型对应Java里面的哪些数据类型 整数类型 数据库：在 MySQL 中有 INT（4 字节）、BIGINT（8 字节）等； Java：INT 类型对应 Java 中的 int 类型；BIGINT 类型对应 Java 中的 long 类型；SMALLINT 类型对应 Java 中的 short 类型；TINYINT类型对应 Java 中的byte 类型；   浮点数和小">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changtingjiuxue1.github.io/blog/.io//%5C%E4%BD%9C%E4%B8%9A1%5C1.png">
+<meta property="article:published_time" content="2025-01-16T11:46:27.000Z">
+<meta property="article:modified_time" content="2025-01-16T13:02:25.364Z">
+<meta property="article:author" content="Changtingjiuxue">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://changtingjiuxue1.github.io/blog/.io//%5C%E4%BD%9C%E4%B8%9A1%5C1.png">
+  
+  
+  
+  <title>作业1 - Changtingjiuxue&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"changtingjiuxue1.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="作业1"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-16 19:46" pubdate>
+          2025年1月16日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">作业1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ol>
+<li><h3 id="数据库数据类型，并指出这些类型对应Java里面的哪些数据类型"><a href="#数据库数据类型，并指出这些类型对应Java里面的哪些数据类型" class="headerlink" title="数据库数据类型，并指出这些类型对应Java里面的哪些数据类型"></a>数据库数据类型，并指出这些类型对应Java里面的哪些数据类型</h3><ol>
+<li>整数类型<ul>
+<li><strong>数据库</strong>：在 MySQL 中有 <code>INT</code>（4 字节）、<code>BIGINT</code>（8 字节）等；</li>
+<li><strong>Java</strong>：<code>INT</code> 类型对应 Java 中的 <code>int</code> 类型；<code>BIGINT</code> 类型对应 Java 中的 <code>long</code> 类型；<code>SMALLINT</code> 类型对应 Java 中的 <code>short</code> 类型；TINYINT<code>类型对应 Java 中的</code>byte<code> 类型；</code></li>
+</ul>
+</li>
+<li>浮点数和小数类型<ul>
+<li><strong>数据库</strong>：MySQL 中有 <code>FLOAT</code>（单精度浮点数）、<code>DOUBLE</code>（双精度浮点数）、<code>DECIMAL</code>等。</li>
+<li><strong>Java</strong>：<code>FLOAT</code> 对应 Java 中的 <code>float</code> 类型；<code>DOUBLE</code> 对应 Java 中的 <code>double</code> 类型；</li>
+</ul>
+</li>
+<li>字符和字符串类型<ul>
+<li><strong>数据库</strong>：MySQL 中有 <code>CHAR</code>（定长）、<code>VARCHAR</code>（变长）等；</li>
+<li><strong>Java</strong>：这些类型在 Java 中对应 <code>String</code> 类型；</li>
+</ul>
+</li>
+<li>日期和时间类型<ul>
+<li><strong>数据库</strong>：MySQL 中有 <code>DATE</code>（只存储日期，格式为 <code>YYYY-MM-DD</code>）、<code>TIME</code>（只存储时间，格式为 <code>HH:MM:SS</code>）、<code>DATETIME</code>（存储日期和时间，格式为 <code>YYYY-MM-DD HH:MM:SS</code>）等；</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><h3 id="InnoDB存储引擎的特点？"><a href="#InnoDB存储引擎的特点？" class="headerlink" title="InnoDB存储引擎的特点？"></a>InnoDB存储引擎的特点？</h3><ol>
+<li><em><strong>事务支持</strong></em>：InnoDB是MySQL中第一个提供外键约束的存储引擎，支持ACID兼容的事务，包括提交、回滚和崩溃恢复功能。</li>
+<li><em><strong>行级锁定</strong></em>：InnoDB使用行级锁定，而不是表级锁定，这提高了多用户并发操作的性能。</li>
+<li><em><strong>MVCC</strong></em>：通过多版本并发控制（MVCC）实现高并发性，支持一致性非锁定读。</li>
+<li><em><strong>存储结构</strong></em>：InnoDB表在磁盘上按照主键的顺序存放数据，支持聚集索引和非聚集索引。</li>
+<li><em><strong>缓冲池</strong></em>：InnoDB使用缓冲池技术来缓存数据和索引，以提高读写性能。</li>
+<li><em><strong>自适应哈希索引</strong></em>：InnoDB会自动为频繁访问的索引页创建哈希索引，以提高查询性能。</li>
+<li><em><strong>Change Buffer</strong></em>：InnoDB使用Change Buffer来缓存对非聚集非唯一索引的修改，以减少IO操作。</li>
+<li><em><strong>Doublewrite Buffer</strong></em>：InnoDB使用Doublewrite Buffer来确保数据写入的可靠性，防止数据丢失。</li>
+<li><em><strong>日志缓冲</strong></em>：InnoDB使用日志缓冲区来缓存重做日志，以减少磁盘IO操作。</li>
+</ol>
+<p>InnoDB引擎的这些特点使其成为需要高可靠性、高并发性和高性能的应用场景的首选存储引擎。</p>
+</li>
+<li><h3 id="如何使用SQL语句创建数据库、创建表、删除数据库、删除表、修改表结构"><a href="#如何使用SQL语句创建数据库、创建表、删除数据库、删除表、修改表结构" class="headerlink" title="如何使用SQL语句创建数据库、创建表、删除数据库、删除表、修改表结构"></a>如何使用SQL语句创建数据库、创建表、删除数据库、删除表、修改表结构</h3><p><img src="/blog/.io//%5C%E4%BD%9C%E4%B8%9A1%5C1.png" srcset="/blog/img/loading.gif" lazyload></p>
+</li>
+<li><h3 id="熟悉数据库表的增删改查操作"><a href="#熟悉数据库表的增删改查操作" class="headerlink" title="熟悉数据库表的增删改查操作"></a>熟悉数据库表的增删改查操作</h3><ol>
+<li><strong>增加（Insert）</strong><ul>
+<li>使用<code>INSERT INTO</code>语句向表中添加新记录。可以指定所有列或部分列的值。</li>
+<li>例如：<code>INSERT INTO table_name (column1, column2) VALUES (value1, value2);</code></li>
+</ul>
+</li>
+<li><strong>删除（Delete）</strong><ul>
+<li>使用<code>DELETE FROM</code>语句从表中删除记录。可以使用<code>WHERE</code>子句来指定删除的条件。</li>
+<li>例如：<code>DELETE FROM table_name WHERE condition;</code></li>
+</ul>
+</li>
+<li><strong>修改（Update）</strong><ul>
+<li>使用<code>UPDATE</code>语句来修改表中已有的记录。同样需要使用<code>WHERE</code>子句来指定修改的条件。</li>
+<li>例如：<code>UPDATE table_name SET column1 = new_value WHERE condition;</code></li>
+</ul>
+</li>
+<li><strong>查询（Select）</strong><ul>
+<li>使用<code>SELECT</code>语句来查询表中的数据。可以选择所有列或特定列，也可以使用各种条件来过滤结果。</li>
+<li>例如：<code>SELECT column1, column2 FROM table_name WHERE condition;</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><h3 id="熟悉数据库运算符号"><a href="#熟悉数据库运算符号" class="headerlink" title="熟悉数据库运算符号"></a>熟悉数据库运算符号</h3><ol>
+<li><em><strong>算术运算符</strong></em>：加（+）、减（-）、乘（*）、除（&#x2F;）和取模（%）</li>
+<li><strong>比较运算符</strong>：等于（&#x3D;）、大于（&gt;）、小于（&lt;）、大于等于（&gt;&#x3D;）、小于等于（&lt;&#x3D;）、不等于（!&#x3D;）</li>
+<li><em><strong>逻辑运算符</strong></em>：逻辑非（！）、逻辑与（&amp;&amp;）、逻辑或（||）等</li>
+<li><em><strong>位运算符</strong></em>：位与（&amp;）、位或（|）、位异或（^）、位取反（~）、位左移（&lt;&lt;）和位右移（&gt;&gt;）</li>
+<li><em><strong>关系运算符</strong></em>：包括并（V）、差（^）等</li>
+</ol>
+</li>
+<li><h3 id="常用函数的使用，sum，avg等"><a href="#常用函数的使用，sum，avg等" class="headerlink" title="常用函数的使用，sum，avg等"></a>常用函数的使用，sum，avg等</h3><h4 id="SUM函数"><a href="#SUM函数" class="headerlink" title="SUM函数"></a><strong>SUM函数</strong></h4><p>SUM函数用于计算某一单元格区域中数字之和。其语法为：SUM(number1, number2,…)，其中number1、number2等可以是数字、单元格引用或区域。</p>
+<h4 id="AVG函数"><a href="#AVG函数" class="headerlink" title="AVG函数"></a><strong>AVG函数</strong></h4><p>AVG函数用于计算某一单元格区域中数字的平均值。其语法为：AVG(number1, number2,…)，其中number1、number2等可以是数字、单元格引用或区域。</p>
+</li>
+<li><h3 id="熟悉掌握和运用各种索引"><a href="#熟悉掌握和运用各种索引" class="headerlink" title="熟悉掌握和运用各种索引"></a>熟悉掌握和运用各种索引</h3><h4 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a><strong>索引类型</strong></h4><ol>
+<li><em><strong>普通索引</strong></em>：最基础的索引类型，允许重复值和NULL值，适用于大多数查询场景。</li>
+<li><em><strong>唯一索引</strong></em>：确保索引列中的值唯一，但允许有空值（NULL）。适用于需要确保数据唯一性但允许某些记录值缺失的场景。</li>
+<li><em><strong>全文索引</strong></em>：用于对文本内容进行高效搜索，支持分词和模糊匹配。适用于搜索引擎和需要对大量文本数据进行搜索的场景。</li>
+<li><em><strong>覆盖索引</strong></em>：查询中所需的所有列都包含在索引中，减少I&#x2F;O操作，提高查询效率。</li>
+<li><em><strong>组合索引</strong></em>：由多个列的值组成，用于优化多列的组合查询。</li>
+<li><em><strong>聚簇索引和非聚簇索引</strong></em>：聚簇索引定义了表中数据的物理存储方式，非聚簇索引独立于数据的物理存储。</li>
+</ol>
+<h4 id="索引的使用技巧"><a href="#索引的使用技巧" class="headerlink" title="索引的使用技巧"></a><strong>索引的使用技巧</strong></h4><ol>
+<li><em><strong>避免全表扫描</strong></em>：在where及order by，group by涉及的列上建立索引。</li>
+<li><em><strong>避免滥用索引</strong></em>：过多的索引会降低更新表的速度，并占用磁盘空间。</li>
+<li><em><strong>避免使用!&#x3D;或&lt;&gt;操作符</strong></em>：否则将引擎放弃使用索引而进行全表扫描。</li>
+<li><em><strong>避免在where子句中对字段进行null值判断</strong></em>：否则将导致引擎放弃使用索引而进行全表扫描。</li>
+<li><em><strong>避免在where子句中使用or来连接条件</strong></em>：否则将导致引擎放弃使用索引而进行全表扫描。</li>
+<li><em><strong>避免使用like通配符</strong></em>：当通配符位于字符串的开始位置（例如%keyword），MySQL可能无法利用索引进行快速查找。</li>
+<li><em><strong>避免在索引列上使用内置函数</strong></em>：对索引列应用MySQL内置函数，会使得MySQL无法直接使用索引进行查找。</li>
+<li><em><strong>避免在索引列上执行算术运算</strong></em>：在索引列上执行算术运算（如加、减、乘、除）会使得MySQL无法利用索引进行数据查找。</li>
+</ol>
+<h4 id="索引的应用场景"><a href="#索引的应用场景" class="headerlink" title="索引的应用场景"></a><strong>索引的应用场景</strong></h4><ol>
+<li><em><strong>获取列表中特定位置的元素</strong></em>：通过索引快速获取列表中特定位置的元素。</li>
+<li><em><strong>截取字符串的子串</strong></em>：使用字符串索引来截取子串。</li>
+<li><em><strong>定位元组中的某个值</strong></em>：通过索引快速定位元组中的某个值。</li>
+</ol>
+</li>
+<li><h3 id="数据库表的查询操作，查询操作要熟练使用where，in，like，between…and…，group-by，having等"><a href="#数据库表的查询操作，查询操作要熟练使用where，in，like，between…and…，group-by，having等" class="headerlink" title="数据库表的查询操作，查询操作要熟练使用where，in，like，between…and…，group by，having等"></a>数据库表的查询操作，查询操作要熟练使用where，in，like，between…and…，group by，having等</h3><h4 id="WHERE子句"><a href="#WHERE子句" class="headerlink" title="WHERE子句"></a>WHERE子句</h4><p>WHERE子句用于过滤记录，即从表中选择满足指定条件的行。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> department_id <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这将返回所有部门ID为10的员工记录。</p>
+<h4 id="IN子句"><a href="#IN子句" class="headerlink" title="IN子句"></a>IN子句</h4><p>IN子句允许您在WHERE子句中指定多个可能的值。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> department_id <span class="hljs-keyword">IN</span> (<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>);<br></code></pre></td></tr></table></figure>
+
+<p>这将返回部门ID为10、20或30的所有员工记录。</p>
+<h4 id="LIKE子句"><a href="#LIKE子句" class="headerlink" title="LIKE子句"></a>LIKE子句</h4><p>LIKE子句用于在WHERE子句中搜索列中的指定模式。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> first_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;J%&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这将返回所有名字以“J”开头的员工记录。</p>
+<h4 id="BETWEEN…AND…子句"><a href="#BETWEEN…AND…子句" class="headerlink" title="BETWEEN…AND…子句"></a>BETWEEN…AND…子句</h4><p>BETWEEN…AND…子句用于在WHERE子句中选择介于两个值之间的范围。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> salary <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">50000</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">100000</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这将返回所有薪资在50000到100000之间的员工记录。</p>
+<h4 id="GROUP-BY子句"><a href="#GROUP-BY子句" class="headerlink" title="GROUP BY子句"></a>GROUP BY子句</h4><p>GROUP BY子句用于将表中的记录按照一个或多个列进行分组。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT department_id, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> num_employees <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department_id;<br></code></pre></td></tr></table></figure>
+
+<p>这将返回每个部门的员工数量。</p>
+<h4 id="HAVING子句"><a href="#HAVING子句" class="headerlink" title="HAVING子句"></a>HAVING子句</h4><p>HAVING子句用于在GROUP BY子句之后过滤分组结果。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sqlSELECT department_id, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">AS</span> num_employees <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department_id <span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;</span> <span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这将返回员工数量大于5的部门。</p>
+</li>
+<li><h3 id="要熟悉掌握left-join-inner-join-right-join-cross-jion-这些连表操作"><a href="#要熟悉掌握left-join-inner-join-right-join-cross-jion-这些连表操作" class="headerlink" title="要熟悉掌握left join,inner join,right join,cross jion 这些连表操作"></a>要熟悉掌握left join,inner join,right join,cross jion 这些连表操作</h3><ol>
+<li><strong>INNER JOIN</strong><ul>
+<li>返回两个表中满足连接条件的记录。如果某个表中的行在另一个表中没有匹配行，则这些行不会出现在结果集中。</li>
+<li>例如：<code>SELECT * FROM TableA INNER JOIN TableB ON TableA.Key = TableB.Key</code>。</li>
+</ul>
+</li>
+<li><strong>LEFT JOIN</strong><ul>
+<li>返回左表的所有记录，以及右表中与左表匹配的记录。如果右表中没有匹配的记录，则右表的部分显示为NULL。</li>
+<li>例如：<code>SELECT * FROM TableA LEFT JOIN TableB ON TableA.Key = TableB.Key</code>。</li>
+</ul>
+</li>
+<li><strong>RIGHT JOIN</strong><ul>
+<li>返回右表的所有记录，以及左表中与右表匹配的记录。如果左表中没有匹配的记录，则左表的部分显示为NULL。</li>
+<li>例如：<code>SELECT * FROM TableA RIGHT JOIN TableB ON TableA.Key = TableB.Key</code>。</li>
+</ul>
+</li>
+<li><strong>CROSS JOIN</strong><ul>
+<li>返回两个表的笛卡尔积，即第一个表中的每一行与第二个表中的每一行组合生成一个新的行。如果第一个表有m行，第二个表有n行，则结果有m*n行。</li>
+<li>例如：<code>SELECT * FROM TableA CROSS JOIN TableB</code>。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>力扣题目：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combine-two-tables/description/">175. 组合两个表 - 力扣（LeetCode）</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/employees-earning-more-than-their-managers/">181. 超过经理收入的员工 - 力扣（LeetCode）</a></li>
+</ol>
+<p>进阶：</p>
+<ol>
+<li><h3 id="索引使用的什么数据结构，为什么采用这种数据结构不采用B树？什么是索引下推？什么是回表？"><a href="#索引使用的什么数据结构，为什么采用这种数据结构不采用B树？什么是索引下推？什么是回表？" class="headerlink" title="索引使用的什么数据结构，为什么采用这种数据结构不采用B树？什么是索引下推？什么是回表？"></a>索引使用的什么数据结构，为什么采用这种数据结构不采用B树？什么是索引下推？什么是回表？</h3><ol>
+<li><strong>磁盘IO效率</strong>：B+树的所有数据都存储在叶子节点，这使得查询时需要的磁盘IO次数更少，因为通常只需要访问叶子节点即可获取数据。B树的非叶子节点也存储数据，导致查询可能需要访问更多的层级，增加了IO成本。</li>
+<li><strong>范围查询效率</strong>：B+树的叶子节点是双向链表，非常适合进行范围查询，因为一旦定位到起始点，可以通过链表顺序访问后续的相关数据。B树则需要在每次范围查询时从根节点重新开始遍历。</li>
+<li><strong>稳定性</strong>：B+树的结构更加稳定，因为它的非叶子节点只存储索引信息，不存储实际数据，这使得树的结构在插入和删除操作时更加稳定，减少了树的重组频率。</li>
+</ol>
+<p>索引下推是一种优化技术，它允许在索引遍历过程中对索引中的数据进行过滤，从而减少需要回表查询的数据量。例如，如果有一个联合索引（如name和age），并且查询条件是name like ‘张%’ and age &gt; 10，索引下推会在索引层面对满足name条件的记录进一步筛选age条件，而不是先将所有满足name条件的记录回表后再进行筛选。</p>
+<p>回表是指在非主键索引（也称为二级索引）的查询中，当通过索引找到匹配的记录后，还需要根据索引中存储的主键值返回到主键索引去查询完整的行数据。这是因为二级索引的叶子节点只存储了索引列和主键值，而不包含所有列的数据。</p>
+</li>
+<li><h3 id="要熟悉掌握left-join-inner-join-right-join-cross-jion-这些连表操作，要知道怎么连接的，并用韦恩图画出来。"><a href="#要熟悉掌握left-join-inner-join-right-join-cross-jion-这些连表操作，要知道怎么连接的，并用韦恩图画出来。" class="headerlink" title="要熟悉掌握left join,inner join,right join,cross jion 这些连表操作，要知道怎么连接的，并用韦恩图画出来。"></a>要熟悉掌握left join,inner join,right join,cross jion 这些连表操作，要知道怎么连接的，并用韦恩图画出来。</h3><p><strong>INNER JOIN</strong></p>
+<ul>
+<li>只返回两个表中满足连接条件的行。</li>
+<li>如果某行在其中一个表中没有匹配，则不会出现在结果集中。</li>
+<li>韦恩图表示：只有两个集合交集的部分。</li>
+</ul>
+<p><strong>LEFT JOIN (LEFT OUTER JOIN)</strong></p>
+<ul>
+<li>返回左表中的所有行，即使在右表中没有匹配的行。</li>
+<li>如果右表中没有匹配的行，则结果集中的右表列将为NULL。</li>
+<li>韦恩图表示：左表全部加上两个集合交集的部分。</li>
+</ul>
+<h5 id="RIGHT-JOIN-RIGHT-OUTER-JOIN"><a href="#RIGHT-JOIN-RIGHT-OUTER-JOIN" class="headerlink" title="RIGHT JOIN (RIGHT OUTER JOIN)"></a>RIGHT JOIN (RIGHT OUTER JOIN)</h5><ul>
+<li>返回右表中的所有行，即使在左表中没有匹配的行。</li>
+<li>如果左表中没有匹配的行，则结果集中的左表列将为NULL。</li>
+<li>韦恩图表示：右表全部加上两个集合交集的部分。</li>
+</ul>
+<p><strong>CROSS JOIN</strong></p>
+<ul>
+<li>返回两个表的笛卡尔积，即第一个表的每一行与第二个表的每一行组合。</li>
+<li>不需要指定连接条件，但结果集可能非常大。</li>
+<li>韦恩图表示：两个集合的全部区域。</li>
+</ul>
+</li>
+</ol>
+<p>为了更直观地理解这些连接操作，可以使用韦恩图来表示不同<code>JOIN</code>类型所涵盖的数据范围：</p>
+<ul>
+<li><strong>INNER JOIN</strong>：两个圆的重叠部分。</li>
+<li><strong>LEFT JOIN</strong>：左圆及其与右圆重叠的部分。</li>
+<li><strong>RIGHT JOIN</strong>：右圆及其与左圆重叠的部分。</li>
+<li><strong>CROSS JOIN</strong>：两个圆的全部区域，包括重叠部分和非重叠部分。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>作业1</div>
+      <div>https://changtingjiuxue1.github.io/blog/2025/01/16/作业1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Changtingjiuxue</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2025/01/14/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
