@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Changtingjiuxue">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Spring概念  Spring引入带来了哪些好处？  什么是AOP？  什么是IOC？  什么是Bean？ Spring框架的引入为企业级应用开发带来了诸多好处，主要包括简化开发过程、提高代码可维护性和可扩展性、降低组件之间的耦合度等。 AOP（面向切面编程）   AOP是一种编程范式，它允许开发者将横切关注点（如日志记录、事务管理、安全检查等）从业务逻辑中分离出来，并以声明式的方式集中管理这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作业2">
+<meta property="og:url" content="https://changtingjiuxue1.github.io/blog/2025/01/17/%E4%BD%9C%E4%B8%9A2/index.html">
+<meta property="og:site_name" content="Changtingjiuxue&#39;s blog">
+<meta property="og:description" content="Spring概念  Spring引入带来了哪些好处？  什么是AOP？  什么是IOC？  什么是Bean？ Spring框架的引入为企业级应用开发带来了诸多好处，主要包括简化开发过程、提高代码可维护性和可扩展性、降低组件之间的耦合度等。 AOP（面向切面编程）   AOP是一种编程范式，它允许开发者将横切关注点（如日志记录、事务管理、安全检查等）从业务逻辑中分离出来，并以声明式的方式集中管理这些">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-17T08:36:46.000Z">
+<meta property="article:modified_time" content="2025-01-17T08:45:04.157Z">
+<meta property="article:author" content="Changtingjiuxue">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>作业2 - Changtingjiuxue&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"changtingjiuxue1.github.io","root":"/blog/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/blog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="作业2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-17 16:36" pubdate>
+          2025年1月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">作业2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><em><strong>Spring概念</strong></em></p>
+<ol>
+<li><p>Spring引入带来了哪些好处？</p>
+</li>
+<li><p>什么是AOP？</p>
+</li>
+<li><p>什么是IOC？</p>
+</li>
+<li><p>什么是Bean？</p>
+<p><strong>Spring框架的引入为企业级应用开发带来了诸多好处，主要包括简化开发过程、提高代码可维护性和可扩展性、降低组件之间的耦合度等</strong>。</p>
+<p>AOP（面向切面编程）</p>
+<ol>
+<li><ul>
+<li>AOP是一种编程范式，它允许开发者将横切关注点（如日志记录、事务管理、安全检查等）从业务逻辑中分离出来，并以声明式的方式集中管理这些关注点。</li>
+<li>通过AOP，开发者可以编写“切面”，这些切面在运行时会被织入到目标对象的连接点（Join Point）上，比如方法执行前后、异常抛出时等。</li>
+</ul>
+</li>
+<li>IOC（控制反转）<ul>
+<li>IOC是一种设计思想，它将对象的创建和依赖关系管理的责任从应用程序代码转移到了一个专门的容器（即Spring容器）。</li>
+<li>在传统的开发模式下，对象通常主动创建并管理它们所依赖的对象；而在IOC下，对象不再自行管理这些依赖，而是由容器负责创建对象实例，并通过依赖注入（Dependency Injection, DI）的方式将所需的依赖传递给对象。</li>
+</ul>
+</li>
+<li>Bean<ul>
+<li>在Spring框架中，<strong>Bean是构成应用程序核心的Java对象</strong>。这些对象由Spring IOC容器初始化、装配和管理。</li>
+<li>Bean通过容器中配置的元数据创建，例如在XML文件中使用<code>&lt;bean&gt;</code>标签定义。Spring框架定义的bean都是单例bean，这意味着每个bean定义在容器中只有一个实例。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><em><strong>Bean</strong></em></p>
+<ol>
+<li><p>Bean是如何创建的？实例化bean的三种方式是什么？</p>
+</li>
+<li><p>普通对象怎么才能变成bean？</p>
+</li>
+<li><p>描述一下Bean生命周期</p>
+<h4 id="Bean的创建及实例化方式"><a href="#Bean的创建及实例化方式" class="headerlink" title="Bean的创建及实例化方式"></a>Bean的创建及实例化方式</h4><ol>
+<li><strong>Bean的创建</strong>：在Spring框架中，Bean的创建主要是由IOC容器负责的。当配置好一个Bean的定义后（例如通过XML配置文件或注解），IOC容器会根据这些定义来创建Bean的实例。</li>
+<li>实例化Bean的三种方式<ul>
+<li><strong>构造器实例化</strong>：这是最常用的方式，通过调用Bean的构造方法来创建实例。Spring容器在读取Bean的定义后，会根据定义的构造器参数来调用相应的构造方法。</li>
+<li><strong>静态工厂方法实例化</strong>：通过一个静态工厂方法来创建Bean实例。在配置中指定工厂类的静态方法，Spring容器会调用该方法来获取Bean实例。</li>
+<li><strong>实例工厂方法实例化</strong>：与静态工厂方法类似，但使用的是实例方法。需要先创建一个工厂Bean的实例，然后通过该实例调用工厂方法来获取目标Bean的实例。</li>
+</ul>
+</li>
+</ol>
+<h4 id="普通对象变成Bean的方法"><a href="#普通对象变成Bean的方法" class="headerlink" title="普通对象变成Bean的方法"></a>普通对象变成Bean的方法</h4><p>要将一个普通对象转变为Spring框架中的Bean，主要有以下步骤：</p>
+<ol>
+<li><strong>定义Bean</strong>：首先需要在Spring的配置文件中定义这个对象作为Bean，或者使用注解来标记这个类为Spring管理的Bean。</li>
+<li><strong>配置依赖注入</strong>：在定义Bean时，可以配置它的依赖关系，Spring容器会在创建Bean实例时自动注入这些依赖。</li>
+<li><strong>交由IOC容器管理</strong>：将对象的创建和管理交给Spring的IOC容器。容器会根据配置创建Bean实例，并管理其生命周期。</li>
+</ol>
+<h4 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h4><ol>
+<li><strong>实例化（Instantiation）</strong>：Spring容器根据Bean的定义创建Bean的实例。</li>
+<li><strong>依赖注入（Dependency Injection）</strong>：容器将Bean所依赖的其他对象注入到Bean中。</li>
+<li>初始化（Initialization）<ul>
+<li>如果Bean实现了<code>InitializingBean</code>接口，会调用<code>afterPropertiesSet()</code>方法。</li>
+<li>如果配置了<code>init-method</code>属性，会调用指定的初始化方法。</li>
+</ul>
+</li>
+<li><strong>使用（Usage）</strong>：Bean实例现在可以被应用程序使用了，容器会维护一个Bean的实例池，按需提供实例。</li>
+<li>销毁（Destruction）<ul>
+<li>如果Bean实现了<code>DisposableBean</code>接口，会调用<code>destroy()</code>方法。</li>
+<li>如果配置了<code>destroy-method</code>属性，会调用指定的销毁方法。</li>
+</ul>
+</li>
+</ol>
+<p>这个生命周期允许我们在Bean创建前后执行自定义的逻辑，比如资源初始化和清理工作。</p>
+</li>
+</ol>
+<p><em><strong>依赖注入</strong></em></p>
+<ol>
+<li><p>setter注入</p>
+</li>
+<li><p>构造器注入</p>
+</li>
+<li><p>自动注入</p>
+</li>
+<li><p>集合注入</p>
+<ol>
+<li><em><strong>setter注入</strong></em>：这是最常用的依赖注入方式。通过在Java Bean中定义set方法，Spring容器在创建对象时，会调用这些set方法来注入依赖。例如：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">java    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;<br>        <span class="hljs-keyword">private</span> MyDependency dependency;<br>        <br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setDependency</span><span class="hljs-params">(MyDependency dependency)</span> &#123;<br>            <span class="hljs-type">this</span> <span class="hljs-variable">dependency</span> <span class="hljs-operator">=</span> dependency;<br>        &#125;<br>    &#125;<br>    <br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><em><strong>构造器注入</strong></em>：这种方式是通过构造方法来注入依赖。这种方式可以确保对象在创建时就具有所有必要的依赖，并且可以使得依赖关系更加明确。例如：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">java    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;<br>        <span class="hljs-keyword">private</span> MyDependency dependency;<br>        <br>        <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyClass</span><span class="hljs-params">(MyDependency dependency)</span> &#123;<br>            <span class="hljs-type">this</span> <span class="hljs-variable">dependency</span> <span class="hljs-operator">=</span> dependency;<br>        &#125;<br>    &#125;<br>    <br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><em><strong>自动注入</strong></em>：Spring容器可以自动装配bean之间的依赖关系。这可以通过在配置文件中设置<code>autowire</code>属性来实现，或者在注解中使用<code>@Autowired</code>。例如：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">xml    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myClass&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.example.MyClass&quot;</span> <span class="hljs-attr">autowire</span>=<span class="hljs-string">&quot;byName&quot;</span>/&gt;</span><br>    <br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><em><strong>集合注入</strong></em>：当需要注入集合类型（如List、Set、Map等）时，可以使用特定的XML标签来配置。例如：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml">xml    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myClass&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.example.MyClass&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myList&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>item1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>item2<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br>    <br></code></pre></td></tr></table></figure></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>作业2</div>
+      <div>https://changtingjiuxue1.github.io/blog/2025/01/17/作业2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Changtingjiuxue</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2025/01/16/%E4%BD%9C%E4%B8%9A1/" title="作业1">
+                        <span class="hidden-mobile">作业1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
